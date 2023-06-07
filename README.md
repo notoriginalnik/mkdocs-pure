@@ -2,7 +2,7 @@
 
 Theme free from JavaScript and external links.
 
-[site example]: https://notoriginalnik.github.io/
+[site example](https://notoriginalnik.github.io/)
 
 [![PyPI Downloads][pypi-dl-image]][pypi-dl-link]
 [![PyPI Version][pypi-v-image]][pypi-v-link]
