@@ -1,0 +1,17 @@
+<!--
+
+-->
+{% if not nav_item.children %}
+<li {% if nav_item.active %}class="pure-menu-item"{% endif %}>
+    <a href="{{ nav_item.url|url }}" class="pure-menu-link">{{ nav_item.title }}</a>
+</li>
+{% else %}
+  <li class="pure-menu-folder">
+    {{ nav_item.title }}
+    <ul>
+        {% for nav_item in nav_item.children %}
+            {% include "nav.html" %}
+        {% endfor %}
+    </ul>
+  </li>
+{% endif %}

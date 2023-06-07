@@ -1,0 +1,29 @@
+	
+{% if not nav_item.children %}
+		    {% if nav_item.url %}
+                <!-- A single blog post -->
+				<hr/>
+                <section class="post">
+                    <div class="post-description">
+                        <p>
+						<a href="{{ nav_item.url|url }}" class="post-link">
+						{{ nav_item.url }}
+						{{ nav_item.content[0:400] |url }}...
+						
+						</a>
+                        </p>
+                    </div>
+                </section>
+			{% endif %}
+{% else %}
+  <li class="pure-menu-folder">
+    	<section class="post">
+	    <h3 id={{ nav_item.title }} >{{ nav_item.title }}<h3/>
+		                </section>
+    <ul>
+        {% for nav_item in nav_item.children |reverse %}
+            {% include "single_blog_post.html" %}
+        {% endfor %}
+    </ul>
+  </li>
+{% endif %}

@@ -1,0 +1,155 @@
+<!--
+  This Basic theme serves as an example for how to create other
+  themes by demonstrating the features with minimal HTML and CSS.
+  Comments like this will be through the code to explain briefly
+  what each feature is and point you to the MkDocs documentation
+  to find out more.
+-->
+<!DOCTYPE html>
+<head>
+  {% block site_meta %}
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  {% endblock %}
+  <!--
+    The page_title contains the title for a page as shown in the navigation.
+    Site name contains the name as defined in the mkdocs.yml
+  -->
+  {% block htmltitle %}
+  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}</title>
+  {% endblock %}
+  <!--
+    You can include external assets of course, but be aware that it means the
+    documentation may not work well offline.
+  -->
+  {%- block styles %}
+  <link rel="stylesheet" href="{{ "css/pure-min.css"|url }}">
+  <link rel="stylesheet" href="{{ "css/theme.css"|url }}">
+
+  <!--
+    extra_ess contains paths to CSS files in the users
+    documentation directory or a list of CSS files defined in
+    their mkdocs.yml.
+
+    http://www.mkdocs.org/user-guide/configuration/#extra_css
+  -->
+   
+  {% for path in config.extra_css %}
+    <link href="{{ path|url }}" rel="stylesheet">
+  {% endfor %}
+  {% endblock %}
+  {% block libs %}{% endblock %}
+  {% block scripts %}{% endblock %}
+  {% block analytics %}{% endblock %}
+  {% block extrahead %}{% endblock %}
+</head>
+
+<body>
+
+  <!--
+  <h1>This is an example theme for MkDocs.</h1>
+
+  <p>
+    It is designed to be read by looking at the theme HTML which is heavily
+    commented. The easiest way to do that is by
+    <strong><a href="https://github.com/mkdocs/mkdocs-basic-theme/tree/master/basic_theme">
+    looking at the source on GitHub.</a></strong>. Otherwise this is just a
+    demonstration that the theme is fully functional.
+  </p>
+
+  <hr/>
+  -->
+  <!--
+  <h2>Documentation Navigation</h2>
+  -->
+  <!--
+    Create the navigation for the documentation.
+
+    Because we don't know how many levels deep the navigation is, it needs to
+    be included in it's own file so it can be recursive. Otherwise the theme
+    can also only support a specific number of levels.
+
+    See the nav.html file for more details about how this works.
+  -->
+{% block site_name %}{% endblock %}  
+{% block search_button %}{% endblock %}
+<div id="layout">
+{% block toggler %}
+    <!-- Menu toggle -->
+  <h1 class="logo-text">
+	<label for="toggler">
+      <i class="fas fa-bars sidebar-toggle"></i>
+    </label>
+  </h1>
+	
+	<input type="checkbox" id="toggler" checked />
+    <div id="menu">
+      <div class="pure-menu">
+  <ul class="pure-menu-list">
+  {% for nav_item in nav |reverse %}
+    {% include "nav.html" %}
+  {% endfor %}
+  </ul>
+      </div>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+<div id="main">
+  <div class="content">
+    {% if "index.html" not in page.url %}
+        {{ page.content }}
+    {% endif %}
+    {% if not page.url %}
+	{% include "blog4.html" %}
+
+    {% endif %}
+
+
+
+  <!--  
+  <h2>Next and previous links</h2>
+
+    Implement the previous and next links to cycle through the pages.
+  -->
+    {% block next_prev %}
+    {% if page.next_page or page.previous_page %}
+    <div>
+      {% if page.previous_page %}
+        <a href="{{ page.previous_page.url|url }}" title="{{ page.previous_page.title }}">&#8592; Previous</a>
+      {% else %}
+        &#8592; Previous
+      {% endif %}
+      -
+      {% if page.next_page %}
+        <a href="{{ page.next_page.url|url }}" title="{{ page.next_page.title }}"/>Next &#8594;</a>
+      {% else %}
+        Next &#8594;
+      {% endif %}
+    </div>
+    {% endif %}
+    {% endblock %}
+
+
+
+  <!--
+    Support repo URL
+  -->
+  {% block repo %}
+  {% if page and page.edit_url %}
+    <a href="{{ page.edit_url }}">Edit on {{ config.repo_name }}</a>
+  {% elif config.repo_url %}
+    <a href="{{ config.repo_url }}">{{ config.repo_name }}</a>
+  {% endif %}
+  {% endblock %}
+  {% block footer %}
+  Built with <a href="https://www.mkdocs.org">MkDocs</a> and <a href="https://www.mkdocs.org">Pure theme</a>
+  {% endblock %}
+  </div>
+</div>
+{% endblock %}
+</div>
+</body>
+</html>

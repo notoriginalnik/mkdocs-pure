@@ -1,0 +1,24 @@
+<hr/>
+<ul class="pure-menu-list">
+    {% for nav_item in nav |reverse %}
+    {% if nav_item.children %}
+<li class="pure-menu-item">
+    <a href="{{ nav_item.url|url }}#{{ nav_item.title }}" class="pure-menu-link">{{ nav_item.title }}</a>
+</li>
+    {% endif %}
+    {% endfor %}
+</ul>
+<hr/>	
+	<link rel="stylesheet" href="{{ "css/styles.css"|url }}">
+
+        <!-- A wrapper for all the blog posts -->
+        <div class="posts">
+    {% for nav_item in nav |reverse %}
+
+                {% include "single_blog_post1.html" %}
+
+    {% endfor %}
+        </div>
+		<hr/>
+
+

@@ -1,0 +1,3 @@
+[mkdocs.themes]
+pure = mkdocs_pure
+

@@ -1,0 +1,263 @@
+:root {
+  color-scheme: light dark;
+ /* light theme */
+/*
+  --main-bg-color: ffd;
+  --text-color: black;
+  --code-color: green;
+  --details-color: #ffe;
+*/
+ /* dark theme */
+/*
+  --main-bg-color: black;
+  --text-color: white;
+  --code-color: #0f0;
+  --details-color: #432;
+*/
+  --sidebar-width: 300px;  
+  --sidebar-left: -300px; /*	like  sidebar-width */
+}
+
+/* Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 1em;
+ /*	background: #000;*/
+ /*	color: #fff;*/
+	background: var(--main-bg-color);
+	color: var(--text-color);
+	
+}
+/*	
+p {font-size: 20px;}
+*/
+summary:before {
+   content: "(+)";
+   font-size: 20px;
+   font-weight: bold;
+   margin: -5px 5px 0 0;
+}
+details[open] summary:before {
+   content: "(-)";
+}
+details {
+    margin: 1em;
+	background: var(--details-color);
+}
+
+code {
+	color: var(--code-color);
+}
+
+
+
+
+
+
+.sidebar-toggle {
+  position: absolute;
+  top: 5px;
+  right: 0px;
+/*  right: 205px;*/
+  background: var(--code-color);
+  padding: 4px 11px;
+  text-align: center;
+  border-radius: 14px;
+  cursor: pointer;
+  width: 2em;
+  height: 1em;
+}
+
+
+
+/*
+Add transition to containers so they can push in and out.
+*/
+#layout,
+#menu {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+/*
+This is the parent `<div>` that contains the menu and the content area.
+*/
+#layout {
+    position: relative;
+    left: 0;
+    padding-left: 0;
+}
+    #layout.active #menu {
+        left: var(--sidebar-width);
+        width: var(--sidebar-width);
+    }
+
+/*
+The content `<div>` is where all your content goes.
+*/
+.content {
+    margin: 0 auto;
+    padding: 0 2em;
+    max-width: 800px;
+    margin-bottom: 50px;
+    line-height: 1.6em;
+}
+
+.header {
+     margin: 0;
+     color: var(--details-color);
+     text-align: center;
+     padding: 2.5em 2em 0;
+     border-bottom: 1px solid #eee;
+ }
+    .header h1 {
+        margin: 0.2em 0;
+        font-size: 3em;
+        font-weight: 300;
+    }
+     .header h2 {
+        font-weight: 300;
+        color: #ccc;
+        padding: 0;
+        margin-top: 0;
+    }
+
+.content-subhead {
+    margin: 50px 0 20px 0;
+    font-weight: 300;
+    color: #888;
+}
+
+
+
+/*
+The `#menu` `<div>` is the parent `<div>` that contains the `.pure-menu` that
+appears on the left side of the page.
+*/
+
+#menu {
+    margin-left: var(--sidebar-left); /* "#menu" width */
+    width: var(--sidebar-width);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000; /* so the menu or its navicon stays above all content */
+	background: var(--main-bg-color);
+/*    background: #191818;*/ /* without menu will transparent */
+    overflow-y: auto;
+}
+    /*
+    All anchors inside the menu should be styled like this.
+    */
+    #menu a {
+        color: var(--text-color); /*#999;*/
+        border: none;
+        padding: 0.6em 0 0.6em 0.6em;
+    }
+
+    /*
+    Remove all background/borders, since we are applying them to #menu.
+    */
+     #menu .pure-menu,
+     #menu .pure-menu ul {
+        border: none;
+        background: transparent;
+    }
+
+    /*
+    Add that light border to separate items into groups.
+    */
+    #menu .pure-menu ul,
+    #menu .pure-menu .menu-item-divided {
+        border-top: 1px solid var(--details-color);
+    }
+
+	
+        /*
+        Change color of the anchor links on hover/focus.
+        */
+        #menu .pure-menu li a:hover,
+        #menu .pure-menu li a:focus {
+            background: var(--details-color);
+        }
+    
+	.pure-menu-folder{
+			color: var(--code-color);
+    }
+
+
+
+input {
+  display: none;
+}
+
+/* Toggler Functionality */
+input:checked ~ #menu{
+  left: var(--sidebar-width);
+}
+
+/* -- Responsive Styles (Media Queries) ------------------------------------- */
+
+/*
+Hides the menu at `48em`, but modify this based on your app's needs.
+*/
+@media (min-width: 48em) {
+
+    .header,
+    .content {
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+
+    #layout {
+        padding-left: var(--sidebar-width); /* left col width "#menu" */
+        left: 0;
+    }
+    #menu {
+        left: var(--sidebar-left);
+    }
+
+}
+
+@media (max-width: 48em) {
+    /* Only apply this when the window is small. Otherwise, the following
+    case results in extra padding on the left:
+        * Make the window small.
+        * Tap the menu to trigger the active state.
+        * Make the window large again.
+    */
+    #layout.active {
+        position: relative;
+        left: var(--sidebar-width);
+    }
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+  --main-bg-color: black;
+  --text-color: white;
+  --code-color: #0f0;
+  --details-color: #432;
+  }
+}
+@media (prefers-color-scheme: light) {
+  :root {
+  --main-bg-color: ffd;
+  --text-color: black;
+  --code-color: green;
+  --details-color: #ffe;
+  }
+  /* bug */
+  #menu {
+	background: #fff;
+}

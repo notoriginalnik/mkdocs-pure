@@ -1,0 +1,16 @@
+site_name: MkDocs Pure theme
+theme:
+    name: pure
+#    custom_dir: my_theme_customizations/
+#    include_sidebar: true
+#    nav_style: dark
+#   highlightjs: false #from cloudflare cdn
+#    hljs_languages:
+#        - yaml
+plugins: [] # [] - disable all plugins and default search from cloudflare
+repo_url: https://github.com/notoriginalnik/mkdocs-pure
+#site_dir: notoriginalnik.github.io
+#strict select theme color
+#extra_css: [light.css]
+#    - css/dark.css
+#    - css/light.
