@@ -37,6 +37,7 @@ Use `pip install` for win.
 
 ## auto dark and light mode
 
+```css
 :root {
   color-scheme: light dark;
 }
@@ -59,6 +60,7 @@ Use `pip install` for win.
   #menu {
 	background: #fff;
 }
+```
 
 ## Customize
 
@@ -67,6 +69,7 @@ Change colors and sidebar-width at ./css/theme.ccss
 ## Blog
 
 For simple blogging prefer naming like logs YYYY-MM-DD-*.md:
+```
 docs/
     2015-10-30.md
     2018-12-31.md
@@ -83,6 +86,7 @@ docs/
     2015/10/30.md
     2018/12/31.md
     2019/01/02.md
+```
 
 ## Template blocks
 
@@ -106,26 +110,28 @@ Theme provide the standart blocks:
 
 ## links
 
-[mkdocs-basic-theme]: https://mkdocs.github.io/mkdocs-basic-theme/
-[pure-css repository]: https://github.com/pure-css/pure
-[pure-css site]: https://purecss.io/
-[side-menu]: https://purecss.io/layouts/side-menu/
-[CSS-SideBar-Toggle]: https://codepen.io/swastikyadav/pen/zYZPyrN
-[example css menu]: https://blog.logrocket.com/create-responsive-mobile-menu-with-css-no-javascript/
-[dark mode]: https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/#aa-using-a-body-class
-[layout blog]: https://purecss.io/layouts/blog/
-[repository layout blog]: https://github.com/pure-css/pure/tree/master/site/static/layouts/blog
-[blogging-plugin]: https://github.com/liang2kl/mkdocs-blogging-plugin
-[blogging-plugin-example]: https://github.com/liang2kl/mkdocs-blogging-plugin-example
-[git-revision-date-plugin]: https://github.com/zhaoterryy/mkdocs-git-revision-date-plugin/tree/master
-[material theme request git-revision-date-plugin]: https://github.com/squidfunk/mkdocs-material/issues/1350
-[material theme blog]: https://www.codeinsideout.com/blog/#page1
+[mkdocs-basic-theme](https://mkdocs.github.io/mkdocs-basic-theme/)
+[pure-css repository](https://github.com/pure-css/pure)
+[pure-css site](https://purecss.io/)
+[side-menu](https://purecss.io/layouts/side-menu/)
+[CSS-SideBar-Toggle](https://codepen.io/swastikyadav/pen/zYZPyrN)
+[example css menu](https://blog.logrocket.com/create-responsive-mobile-menu-with-css-no-javascript/)
+[dark mode](https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/#aa-using-a-body-class)
+[layout blog](https://purecss.io/layouts/blog/)
+[repository layout blog](https://github.com/pure-css/pure/tree/master/site/static/layouts/blog)
+[blogging-plugin](https://github.com/liang2kl/mkdocs-blogging-plugin)
+[blogging-plugin-example](https://github.com/liang2kl/mkdocs-blogging-plugin-example)
+[git-revision-date-plugin](https://github.com/zhaoterryy/mkdocs-git-revision-date-plugin/tree/master)
+[material theme request git-revision-date-plugin](https://github.com/squidfunk/mkdocs-material/issues/1350)
+[material theme blog](https://www.codeinsideout.com/blog/#page1)
 
 ## Notes
 
+```
 v0.1
 remove search
 remove js
+store all files localy
 added sidebar
 toogle sidebar
 auto resize site for mobile
@@ -133,3 +139,4 @@ auto dark and light mode
 
 v0.2
 added simple blog
+```

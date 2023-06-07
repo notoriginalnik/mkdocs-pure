@@ -1,6 +1,7 @@
 LICENSE
 MANIFEST.in
 README.md
+pyproject.toml
 setup.py
 mkdocs_pure/__init__.py
 mkdocs_pure/base.html
@@ -15,6 +16,7 @@ mkdocs_pure.egg-info/SOURCES.txt
 mkdocs_pure.egg-info/dependency_links.txt
 mkdocs_pure.egg-info/entry_points.txt
 mkdocs_pure.egg-info/not-zip-safe
+mkdocs_pure.egg-info/requires.txt
 mkdocs_pure.egg-info/top_level.txt
 mkdocs_pure/css/pure-min.css
 mkdocs_pure/css/styles.css
