@@ -1,10 +1,10 @@
 <hr/>
-<ul class="pure-menu-list">
+<ul class="pure-tag-list">
     {% for nav_item in nav |reverse %}
     {% if nav_item.children %}
-<li class="pure-menu-item">
+<!--<li class="pure-menu-item">-->
     <a href="{{ nav_item.url|url }}#{{ nav_item.title }}" class="pure-menu-link">{{ nav_item.title }}</a>
-</li>
+<!--</li>-->
     {% endif %}
     {% endfor %}
 </ul>
@@ -15,7 +15,7 @@
         <div class="posts">
     {% for nav_item in nav |reverse %}
 
-                {% include "single_blog_post1.html" %}
+                {% include "single_blog_post.html" %}
 
     {% endfor %}
         </div>

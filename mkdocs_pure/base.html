@@ -83,9 +83,10 @@
     </label>
   </h1>
 	
-	<input type="checkbox" id="toggler" checked />
+	<input type="checkbox" id="toggler"/>
     <div id="menu">
       <div class="pure-menu">
+	  <a class="pure-menu-heading" href="{{ nav.homepage.url|url }}">Home</a>
   <ul class="pure-menu-list">
   {% for nav_item in nav |reverse %}
     {% include "nav.html" %}
@@ -114,21 +115,22 @@
 
     Implement the previous and next links to cycle through the pages.
   -->
+
     {% block next_prev %}
     {% if page.next_page or page.previous_page %}
-    <div>
+    <nav class="pagination">
       {% if page.previous_page %}
-        <a href="{{ page.previous_page.url|url }}" title="{{ page.previous_page.title }}">&#8592; Previous</a>
+        <a href="{{ page.previous_page.url|url }}" class="pagination--pager" title="{{ page.previous_page.title }}">&laquo; Previous</a>
       {% else %}
-        &#8592; Previous
+        <a href="#" class="disabled pagination--pager">&laquo; Previous</a>
       {% endif %}
-      -
+      
       {% if page.next_page %}
-        <a href="{{ page.next_page.url|url }}" title="{{ page.next_page.title }}"/>Next &#8594;</a>
+        <a href="{{ page.next_page.url|url }}"  class="pagination--pager" title="{{ page.next_page.title }}"/>Next &raquo;</a>
       {% else %}
-        Next &#8594;
+	    <a href="#" class="pagination--pager disabled">Next &raquo;</a>
       {% endif %}
-    </div>
+    </nav>
     {% endif %}
     {% endblock %}
 
@@ -138,14 +140,12 @@
     Support repo URL
   -->
   {% block repo %}
-  {% if page and page.edit_url %}
-    <a href="{{ page.edit_url }}">Edit on {{ config.repo_name }}</a>
-  {% elif config.repo_url %}
-    <a href="{{ config.repo_url }}">{{ config.repo_name }}</a>
+  {% if config.repo_url %}
+   Built on <a href="{{ config.repo_url }}">{{ config.repo_name }}</a>
   {% endif %}
   {% endblock %}
   {% block footer %}
-  Built with <a href="https://www.mkdocs.org">MkDocs</a> and <a href="https://www.mkdocs.org">Pure theme</a>
+   with <a href="https://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/notoriginalnik/mkdocs-pure">Pure theme</a>
   {% endblock %}
   </div>
 </div>

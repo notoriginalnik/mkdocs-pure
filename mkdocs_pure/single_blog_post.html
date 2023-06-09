@@ -7,7 +7,7 @@
                     <div class="post-description">
                         <p>
 						<a href="{{ nav_item.url|url }}" class="post-link">
-						{{ nav_item.url }}
+						<!--{{ nav_item.url }}-->
 						{{ nav_item.content[0:400] |url }}...
 						
 						</a>
@@ -18,7 +18,7 @@
 {% else %}
   <li class="pure-menu-folder">
     	<section class="post">
-	    <h3 id={{ nav_item.title }} >{{ nav_item.title }}<h3/>
+	    <h2 id={{ nav_item.title }} >{{ nav_item.title }}</h2>
 		                </section>
     <ul>
         {% for nav_item in nav_item.children |reverse %}

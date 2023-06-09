@@ -124,6 +124,13 @@ Theme provide the standart blocks:
 1. [git-revision-date-plugin](https://github.com/zhaoterryy/mkdocs-git-revision-date-plugin/tree/master)
 1. [material theme request git-revision-date-plugin](https://github.com/squidfunk/mkdocs-material/issues/1350)
 1. [material theme blog](https://www.codeinsideout.com/blog/#page1)
+```
+https://beautifuljekyll.com/
+https://deanattali.com/popular/
+https://ethanschoonover.com/solarized/
+https://idratherbewriting.com/
+http://waylan.limberg.name/mkdocs-nature/features/
+```
 
 ## Notes
 
@@ -139,4 +146,8 @@ auto dark and light mode
 
 v0.2
 added simple blog
+
+v0.3
+complete sidebar behavior
+change color scheme to solarized
 ```
